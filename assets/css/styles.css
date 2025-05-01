@@ -657,8 +657,10 @@ footer {
     /* Hero Section */
     .hero {
       flex-direction: column;
-      padding: 2rem 1rem;
+      min-height: 20vh;
       text-align: center;
+      padding-top: 10px;
+
     }
   
     .hero-text h1 {
