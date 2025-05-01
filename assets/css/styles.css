@@ -712,6 +712,11 @@ footer {
       width: 100%;
       text-align: center;
     }
+
+    .podcast-speaker-section h2 {
+        font-size: 1.8rem;
+        line-height: 2.2rem;
+    }
   
     /* Cherry Animation */
     .cherry-animation img {
