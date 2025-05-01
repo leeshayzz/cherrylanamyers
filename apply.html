@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Apply Now for Elite Branding</title>
   <link rel="stylesheet" href="./assets/css/applystyles.css" />
+  <link rel="icon" type="image/png" href="./assets/images/Cherry.png" />
 </head>
 <body>
 
@@ -46,14 +47,18 @@
       <!-- 🌟 Application Form -->
       <div class="apply-container fade-in">
         <form 
-          class="apply-form" 
-          id="applyForm" 
           name="applyForm" 
           method="POST" 
           data-netlify="true" 
+          netlify-honeypot="bot-field"
           action="/thankyou.html"
+          class="apply-form"
+          id="applyForm"
         >
           <input type="hidden" name="form-name" value="applyForm" />
+          <p style="display: none;">
+            <label>Don’t fill this out: <input name="bot-field" /></label>
+          </p>
 
           <div class="form-group">
             <label for="name">Your Name</label>
@@ -101,62 +106,67 @@
     </section>
   </div>
 
+
   <!-- 🌟 Footer -->
   <footer>
     <p>© 2025 Cherry's. All Rights Reserved.</p>
   </footer>
 
+  <!-- JavaScript -->
   <script>
-    document.getElementById("applyForm").addEventListener("submit", function(event) {
-      const name = document.getElementById("name").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const business = document.getElementById("business").value.trim();
-      const offerValue = document.getElementById("offer-value").value.trim();
-      const arr = document.getElementById("arr").value.trim();
-      const budget = document.getElementById("budget").value;
-      const referredBy = document.getElementById("referred-by")?.value.trim() || "";
-
-      const emailPattern = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
-
-      if (!name || !email || !business || !offerValue || !arr || !budget) {
-        event.preventDefault();
-        alert("Please fill in all required fields.");
-        return;
-      }
-
-      if (!emailPattern.test(email)) {
-        event.preventDefault();
-        alert("Please enter a valid email address.");
-        return;
-      }
-
-      if (isNaN(offerValue.replace(/[^0-9]/g, '')) || isNaN(arr.replace(/[^0-9]/g, ''))) {
-        event.preventDefault();
-        alert("Please enter valid numeric values for Offer Worth & ARR.");
-        return;
-      }
-
-      // Allow default submission for Netlify
-    });
-
     function toggleMenu() {
       document.querySelector('.nav-links').classList.toggle('active');
     }
 
-    document.addEventListener("DOMContentLoaded", function () {
-    const elements = document.querySelectorAll(".fade-in");
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("applyForm");
 
-    const observer = new IntersectionObserver(entries => {
+      form.addEventListener("submit", function(event) {
+        const name = form.name.value.trim();
+        const email = form.email.value.trim();
+        const business = form.business.value.trim();
+        const offerValue = form["offer-value"].value.trim();
+        const arr = form.arr.value.trim();
+        const budget = form.budget.value;
+
+        const emailPattern = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+
+        if (!name || !email || !business || !offerValue || !arr || !budget) {
+          event.preventDefault();
+          alert("Please fill in all required fields.");
+          return;
+        }
+
+        if (!emailPattern.test(email)) {
+          event.preventDefault();
+          alert("Please enter a valid email address.");
+          return;
+        }
+
+        const offerNumber = offerValue.replace(/[^0-9]/g, '');
+        const arrNumber = arr.replace(/[^0-9]/g, '');
+        if (isNaN(offerNumber) || isNaN(arrNumber)) {
+          event.preventDefault();
+          alert("Please enter valid numeric values for Offer Worth & ARR.");
+          return;
+        }
+
+        // "Referred by" is optional, no check needed
+      });
+
+      const fadeElements = document.querySelectorAll(".fade-in");
+      const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("show");
-            }
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          }
         });
-    }, { threshold: 0.2 }); // Adjust threshold for when effect triggers
+      }, { threshold: 0.2 });
 
-    elements.forEach(element => observer.observe(element));
-});
+      fadeElements.forEach(el => observer.observe(el));
+    });
   </script>
+
 
 </body>
 </html>
