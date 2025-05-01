@@ -129,7 +129,7 @@
         const arr = form.arr.value.trim();
         const budget = form.budget.value;
 
-        const emailPattern = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         if (!name || !email || !business || !offerValue || !arr || !budget) {
           event.preventDefault();
