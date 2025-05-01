@@ -41,7 +41,7 @@
   </header>
 
         <!-- 🌟 Wall of Wins Section -->
-        <section class="wall-of-wins fade-in">
+        <section class="wall-of-wins">
             <div class="container">
                 <h1>Wall of Wins</h1>
 
@@ -99,19 +99,15 @@
 
     <!-- 🌟 Page Scripts -->
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const elements = document.querySelectorAll(".fade-in");
-
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("show");
-                    }
-                });
-            }, { threshold: 0.2 });
-
-            elements.forEach(element => observer.observe(element));
-        });
+        const elements = document.querySelectorAll(".fade-in");
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show");
+            }
+          });
+        }, { threshold: 0.2 });
+        elements.forEach(element => observer.observe(element));
 
         function toggleMenu() {
     document.querySelector('.nav-links').classList.toggle('active');

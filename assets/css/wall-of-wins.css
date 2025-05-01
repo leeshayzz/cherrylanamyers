@@ -3,6 +3,12 @@
     src: url('../fonts/Mont.otf') format('opentype');
 }
 
+.site-content {
+    position: relative;
+    z-index: 1;
+}
+
+
 /* 🌑 Base Styling */
 body {
     background-color: #000;
