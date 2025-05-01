@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wall of Wins | Cherry Lana Myers</title>
+    <link rel="stylesheet" href="../assets/css/wall-of-wins.css">
+    <link rel="preload" href="../assets/fonts/Mont.otf" as="font" type="font/otf" crossorigin="anonymous">
+</head>
+<body>
+
+    <!-- 🌟 Main Site Content -->
+    <div class="site-content" id="siteContent">
+
+        <!-- 🌟 Header Section -->
+        <!-- 🌟 Header Section -->
+  <header class="header fade-in">
+    <!-- Logo Link -->
+    <a href="index.html" class="logo">
+      <img src="../assets/images/cherrlanalogo.png" alt="Cherry Lana Myers Logo">
+    </a>
+
+    <!-- 🍔 Hamburger Menu -->
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- 🌐 Navigation Links -->
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="wall-of-wins.html">Wins</a>
+      <a href="apply.html">Apply Now</a>
+      <a href="work-with-me.html">The Process</a>
+    </nav>
+  </header>
+
+        <!-- 🌟 Wall of Wins Section -->
+        <section class="wall-of-wins fade-in">
+            <div class="container">
+                <h1>Wall of Wins</h1>
+
+                <div class="testimonial">
+                    <h2>Scott Gingold</h2>
+                    <h3>Family Business Therapist & Growth Strategist + Executive Coach</h3>
+                    <p>"Working with Cherry Lana Myers has been an outstanding experience. She worked tirelessly on my LinkedIn branding and website to create a more cohesive, better-organized, and stronger presentation of Gingold Advisors. Cherry took the time to carefully examine our existing materials, thoughtfully discussed our needs and goals, and delivered a final product that met our expectations and made us truly proud. Her attention to detail, creativity, and commitment to getting it right are second to none. I highly recommend Cherry to anyone serious about elevating their brand."</p>
+                </div>
+
+                <div class="testimonial">
+                    <h2>Eric Raza</h2>
+                    <h3>CEO @ SmartOne.ai</h3>
+                    <p>"I had the pleasure of working with Cherry on a comprehensive rebranding project for my LinkedIn profile, for my agency newsletter, and for my regular posts. Cherry is an outstanding design talent. She truly transformed my visual presence, making it more modern and engaging. She is also very quick, her turnaround time was remarkable, consistently delivering high-quality work well within the deadlines. Last but not least, Cherry helped me with various small tasks, always with a positive attitude and attention to detail. I highly recommend Cherry for any design or assistant needs!"</p>
+                </div>
+
+                <div class="testimonial">
+                    <h2>Christal Anderson</h2>
+                    <h3>CEO, CareByte AI</h3>
+                    <p>"I highly recommend Cherry for branding your profile/banner on LinkedIn. She did an incredible job understanding my creative style even better than I do, while incorporating elements that speak to my brand perfectly. Cherry transformed my LinkedIn banner into a showstopper (in my opinion). I love when you work with a creative artist that 'gets you,' and she did not disappoint! That is what Cherry did for me, and I wouldn't hesitate to work with her again in the future!"</p>
+                </div>
+
+                <div class="testimonial">
+                    <h2>Ray Martin</h2>
+                    <h3>Author of "Life Without a Tie" & Coach</h3> 
+                    <p>"Cherry did a brilliant job of updating my LinkedIn profile. Based in Karachi, Pakistan, she carefully interviewed me to understand my needs and turned that into new banners and text within 24 hours. Being a bit of a tech dunce, she then patiently stayed with me in a call to show me how to upload each new piece of data to my profile until it was complete. Nothing was too much trouble. Great service and very affordable rates - thank you so much Cherry!"</p>
+                </div>               
+
+                <div class="testimonial">
+                    <h2>Dana Daskalova</h2>
+                    <h3>Helping coaches & consultants scale to $50,000+/mo</h3> 
+                    <p>"Cherry is the best — she's fast, she's flexible, she's knowledgeable. I didn't know what I wanted and she really helped me in figuring it out. She did as many iterations as necessary to get a result that suited me. My impressions, search appearances and profile views went way up after working with her. 10/10 recommend!"</p>
+                </div>
+
+                <div class="testimonial">
+                  <h2>Guy Thorpe</h2>
+                  <h3>Director @ ValueKey</h3>
+                  <p>"Cherry was amazing to work with and completely nailed the brief. I was looking to give my profile a refresh and rather than spend hours myself designing it, Cherry came up with a design that was professional and eye-catching. If you're trying to grab people's attention with your profile, drop Cherry a message."</p>
+              </div>
+
+                <div class="testimonial">
+                    <h2>Isaac Perdomo</h2>
+                    <h3>Co-founder @ Opzer</h3> 
+                    <p>"Cherry's carousel designs are nothing short of extraordinary. Her ability to blend creativity and functionality is truly impressive. I had the privilege of working with her on a project, and I was consistently amazed by her attention to detail and commitment to delivering captivating user experiences. What sets Cherry apart is her unwavering dedication to excellence and her knack for translating client visions into visually stunning carousels. She's a fantastic collaborator, always bringing fresh ideas to the table and staying up-to-date with the latest design trends. I wholeheartedly recommend Cherry to anyone in need of a carousel designer who can turn ideas into exceptional results. It's been a pleasure working alongside her, and I have no doubt she'll continue to shine in her career as a carousel designer."</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 🌟 Footer -->
+        <footer>
+            <p>© 2025 Cherry's. All Rights Reserved.</p>
+        </footer>
+
+    </div>
+
+    <!-- 🌟 Page Scripts -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const elements = document.querySelectorAll(".fade-in");
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            elements.forEach(element => observer.observe(element));
+        });
+
+        function toggleMenu() {
+    document.querySelector('.nav-links').classList.toggle('active');
+}
+    </script>
+
+</body>
+</html>

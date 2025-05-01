@@ -1,0 +1,417 @@
+@font-face {
+    font-family: 'Mont';
+    src: url('../fonts/Mont.otf') format('opentype');
+}
+
+/* 🌟 Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    height: 60px;
+    z-index: 1000;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 15px rgba(234, 22, 62, 0.4);
+}
+
+/* Logo Styling */
+
+.logo {
+    margin-left: -80px; /* Add this line to push logo a little left */
+}
+
+.logo img {
+    height: 500px; /* Adjust size based on your logo */
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff; /* Customize Cherry's brand color */
+}
+.nav-links {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+    color: #ea163e;
+}
+
+/* 🌟 Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(234, 22, 62, 0.4);
+}
+
+/* 🌟 General Page Styling */
+body {
+    background-color: #000;
+    color: white;
+    font-family: 'Mont', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* 🌟 Fade-in Animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px); /* Start slightly below */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* ✨ When in View, Make it Visible */
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 🌟 Main Content Wrapper */
+.main-content {
+    flex: 1;  /* Pushes footer to bottom */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px; /* Space around */
+}
+
+/* 🌟 Apply Section */
+.apply-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 110px; /* Adjusts space between text & form */
+    max-width: 1200px;
+    padding: 120px 20px;
+    width: 90%;
+    margin: auto;
+}
+
+/* 🌟 Left Side: Text */
+.apply-content {
+    flex: 1.2;  /* Adjust this to control size */
+    max-width: 500px;
+    text-align: left;
+    margin-left: -75px;
+}
+
+/* 🔥 Main Heading */
+.apply-main {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+/* 🔥 Subtitle */
+.apply-subtext {
+    font-size: 1.3rem;
+    font-weight: 500;
+    opacity: 0.85;
+    line-height: 1.4;
+}
+
+/* 🌟 Right Side: Form */
+.apply-container {
+    flex: 1;  /* Adjust this to control form size */
+    background: black;
+    padding: 40px;
+    margin-right:-35px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(234, 22, 62, 0.6);    max-width: 450px;
+    width: 100%;
+    backdrop-filter: blur(8px);
+}
+
+/* 🌟 Form */
+.apply-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* 🔥 Labels */
+.apply-form label {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    margin-left: -13px;
+    color: rgba(255, 255, 255, 0.9);
+    display: block;
+}
+
+/* 🔥 Input Fields & Dropdowns */
+.apply-form input {
+    width: 100%;
+    padding: 14px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    color: #ddd;
+    font-weight: 500;
+    margin-left: -13px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* 🔥 Better Styled Dropdown */
+.apply-form select {
+    width: 100%;
+    padding: 14px;
+    font-size: 1rem;
+    background: black;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    appearance: none;
+
+    /* ✨ Custom Arrow */
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23ea163e" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 18px;
+    padding-right: 40px;
+}
+
+/* 🔥 Remove Default Arrow on Some Browsers */
+.apply-form select::-ms-expand {
+    display: none;
+}
+
+/* ✨ Custom Dropdown Options */
+.apply-form select option {
+    background: black; /* Dark background for dropdown */
+    color: white; /* White text */
+    font-size: 1rem;
+    padding: 10px;
+}
+
+/* 🔥 Hover & Focus Effects */
+.apply-form select:hover {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.apply-form select:focus {
+    border-color: #ea163e;
+    box-shadow: 0 0 10px rgba(234, 22, 62, 0.4);
+    outline: none;
+}
+
+
+/* 🌟 Input Placeholder */
+.apply-form input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* 🔥 Input Hover & Focus */
+.apply-form input:hover, 
+.apply-form select:hover {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.apply-form input:focus, 
+.apply-form select:focus {
+    border: 1px solid #ea163e;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(234, 22, 62, 0.6);
+    outline: none;
+}
+
+/* 🔥 Submit Button */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid #ea163e;
+    background: transparent;
+    color: white;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 10px rgba(234, 22, 62, 0.6);
+}
+
+.btn:hover {
+    background: rgba(234, 22, 62, 0.2);
+}
+
+/* ✅ Mobile Adaptation */
+/* 🌟 Global Responsive Adjustments */
+@media (max-width: 900px) {
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: black;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      height: 60px;
+      z-index: 1000;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 15px rgba(234, 22, 62, 0.4);
+    }
+  
+    /* Hamburger Menu Styling */
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      width: 30px;
+      height: 21px;
+      cursor: pointer;
+      z-index: 1001; /* Ensure it’s on top */
+      margin-right: 30px; /* Align to right */
+    }
+  
+    .hamburger span {
+      width: 100%;
+      height: 4px;
+      background-color: white;
+      transition: transform 0.3s ease-in-out;
+    }
+  
+    /* Navigation Links (Centered on smaller screens) */
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: transform 0.3s ease-in-out;
+    }
+  
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-size: 16px;
+      font-weight: 500;
+      transition: color 0.3s ease-in-out;
+    }
+  
+    .nav-links a:hover {
+      color: #ea163e;
+    }
+  
+    /* When nav-links are active */
+    .nav-links.active {
+      transform: translateX(0);
+    }
+  
+    /* Apply Section (Centered Form and Content) */
+    .apply-section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      max-width: 100%;
+      padding: 60px 20px; /* Adjust padding */
+    }
+  
+    .apply-content {
+      text-align: center;
+      max-width: 100%;
+      margin-left: 0; /* Fix misalignment */
+    }
+  
+    .apply-container {
+      max-width: 90%;
+      width: 100%;
+      margin: 0 auto; /* Ensure centering */
+    }
+  
+    /* Adjust the hamburger menu behavior for small screens */
+    .nav-links {
+      flex-direction: column;
+      position: fixed;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background: black;
+      transform: translateY(-200%);
+      transition: transform 0.3s ease;
+      padding: 20px 0;
+      gap: 20px;
+      z-index: 999;
+    }
+  
+    /* When nav-links are active (shown) */
+    .nav-links.active {
+      transform: translateY(0);
+    }
+  
+    .nav-links a {
+      font-size: 18px;
+    }
+  }
+  
+  /* 🧠 Adaptive Font Sizes */
+  .apply-main {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+  }
+  
+  .apply-subtext,
+  .apply-form label,
+  .apply-form input,
+  .apply-form select,
+  .nav-links a {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+  }
+  
+  /* 🔁 Adaptive Layout */
+  .apply-section {
+    gap: clamp(30px, 8vw, 110px);
+    padding: clamp(60px, 8vw, 120px) 5vw;
+  }
+  
+  .apply-container {
+    padding: clamp(20px, 4vw, 40px);
+  }
+  
+  .apply-content {
+    margin-left: clamp(-30px, -5vw, -75px);
+  }
+  
+  .apply-form input,
+  .apply-form select {
+    padding: clamp(10px, 3vw, 14px);
+  }
+  

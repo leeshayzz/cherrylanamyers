@@ -1,0 +1,716 @@
+@font-face {
+    font-family: 'Mont';
+    src: url('../fonts/Mont.otf') format('opentype');
+}
+
+/* 🌟 Hide site initially */
+body {
+    background-color: #000;
+    color: white;
+    font-family: 'Mont', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* 🌟 Headings */
+h1 {
+  font-size: clamp(2rem, 6vw, 4.5rem); /* Adapts well across different screen sizes */
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: clamp(1.6rem, 5vw, 3.5rem); /* Scaling for medium and large screens */
+}
+
+h3 {
+  font-size: clamp(1.4rem, 4vw, 3rem); /* Smaller heading */
+}
+
+h4 {
+  font-size: clamp(1.2rem, 3.5vw, 2.5rem); /* Even smaller heading */
+}
+
+h5 {
+  font-size: clamp(1rem, 3vw, 2rem); /* Used for even smaller headings */
+}
+
+h6 {
+  font-size: clamp(0.9rem, 2.5vw, 1.5rem); /* For smallest headings */
+}
+
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px); /* Start slightly below */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* ✨ When in View, Make it Visible */
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 🌟 Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    height: 60px;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(234, 22, 62, 0.4);
+}
+
+.header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff; /* Customize Cherry's brand color */
+}
+
+/* Logo Styling */
+
+.logo {
+    margin-left: -80px; /* Add this line to push logo a little left */
+}
+
+.logo img {
+    height: 500px; /* Adjust size based on your logo */
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+    color: #ea163e;
+}
+
+/* 🎬 Offer Hero Video Container */
+.hero-video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    margin-top: 80px;
+}
+
+/* ✨ Centered Hero Video Styling */
+.hero-video video {
+    width: 100%;
+    margin-top: 60px;
+    max-width: 650px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(234, 22, 62, 0.6);
+    filter: brightness(75%) contrast(1.1);
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.hero-video video:hover {
+    transform: scale(1.05);
+    filter: brightness(90%) contrast(1.3);
+}
+
+.offer-hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: black;
+    color: white;
+    max-width: auto;
+    margin: 0 auto;
+}
+
+.offer-hero h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.offer-hero p {
+    font-size: 1.4rem;
+    color: #ddd;
+    margin-bottom: 40px;
+    line-height: 1.3;
+}
+
+.offer-hero .btn {
+    font-size: 1.1rem;
+    padding: 14px 20px;
+}
+
+
+ /* 🌟 Why Offer Section */
+.why-offer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 60px;
+    color: white;
+}
+
+/* 🏆 Left Side (Content) */
+.why-offer-content {
+    flex: 1;
+    text-align: left;
+}
+
+.why-offer-content h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.why-offer-content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #ddd;
+}
+
+.why-offer-content ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-bottom: 30px;
+}
+
+.why-offer-content li {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+/* ✨ Highlighted Sentence */
+.why-offer-content strong {
+    color: #ea163e;
+    font-weight: 600;
+}
+
+/* 🎯 Right Side (Testimonial) */
+.why-offer-testimonial img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(234, 22, 62, 0.6);
+    filter: brightness(90%) contrast(1.1);
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.why-offer-testimonial img:hover {
+    transform: scale(1.05);
+    filter: brightness(100%) contrast(1.3);
+}
+
+/* 🌟 Offer Explanation Section */
+.offer-explanation {
+    background: #000;
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+  }
+  
+  .offer-explanation h1 {
+    font-size: 2.4rem;
+    margin-bottom: 30px;
+  }
+  
+  .offer-explanation p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #ccc;
+    max-width: 800px;
+    margin: 0 auto 40px;
+  }
+  
+  .timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: #ea163e;
+    transform: translateX(-50%);
+  }
+  
+  .timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 40px 30px;
+    box-sizing: border-box;
+  }
+  
+  .timeline-item.left {
+    left: 0;
+    text-align: left;
+  }
+  
+  .timeline-item.right {
+    left: 50%;
+    text-align: left;
+  }
+  
+  .timeline-content {
+    padding: 0 30px;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .timeline-item.left .timeline-content {
+    margin-right: 50px;
+  }
+  
+  .timeline-item.right .timeline-content {
+    margin-left: 50px;
+  }
+  
+  .wave-number {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #ea163e;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .timeline-content h3 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  
+  .timeline-content p,
+  .timeline-content ul {
+    color: #ccc;
+  }
+  
+  .timeline-content ul {
+    list-style: disc;
+    padding-left: 20px;
+    margin-top: 10px;
+  }
+  
+  .timeline-content li {
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+  }
+  
+  /* 🔴 Timeline Nodes */
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    top: 45px;
+    width: 30px;
+    height: 30px;
+    background-color: #ea163e;
+    border-radius: 50%;
+    z-index: 1;
+  }
+  
+  .timeline-item.left::before {
+    right: -14px;
+  }
+  
+  .timeline-item.right::before {
+    left: -14px;
+  }
+  
+  /* Correct the alignment for all 5 nodes, ensuring they're evenly spaced */
+  .timeline-item:nth-child(odd) {
+    margin-bottom: 50px;  /* Add some space between odd items */
+  }
+  
+  .timeline-item:nth-child(even) {
+    margin-top: 50px; /* Add space for even items */
+  }
+  
+  .download h2 {
+    margin-top: 80px;
+    font-size: 1.8rem;
+    color: #fff;
+  }
+  
+  .download p {
+    font-size: 1rem;
+    max-width: 750px;
+    margin: 0 auto 20px;
+    color: #ccc;
+  }
+  
+  
+
+.faq {
+    max-width: 1000px;
+    margin: 80px auto;
+    padding: 0 20px;
+    color: white;
+    text-align: left;
+  }
+  
+  .faq h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: white;
+    text-align: center;
+  }
+  
+  .faq-item {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #333;
+  }
+  
+  .faq-question {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 300;
+    width: 100%;
+    text-align: left;
+    padding: 16px 0;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+  
+  .faq-question::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    top: 16px;
+    font-size: 1.2rem;
+    color: #ea163e;
+    transition: transform 0.3s ease;
+  }
+  
+  .faq-question.active::after {
+    content: '–';
+    transform: rotate(180deg);
+  }
+  
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+    opacity: 0;
+  }
+  
+  .faq-answer p {
+    font-size: 1.1rem;
+    color: #ccc;
+    line-height: 1.5;
+    padding-bottom: 16px;
+  }
+  
+  .faq-question.active + .faq-answer {
+    max-height: 300px;
+    opacity: 1;
+  }
+  
+
+  .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: none;
+    border: 2px solid #ea163e;
+    background: transparent;
+    color: white;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 10px rgba(234, 22, 62, 0.6);
+}
+
+.btn:hover {
+    background: rgba(234, 22, 62, 0.2);
+}
+  
+
+footer {
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 4px 35px rgba(234, 22, 62, 0.4);
+}
+
+/* Hamburger Menu Styling */
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 1001;
+    margin-right: 30px;
+  }
+
+
+  .hamburger span {
+    width: 100%;
+    height: 4px;
+    background-color: white;
+    transition: transform 0.3s ease-in-out;
+  }
+
+}
+
+/* ================================
+   📱 Mobile First - Max 768px
+   ================================ */
+   @media screen and (max-width: 768px) {
+  
+    .hero-video video {
+      max-width: 100%;
+      margin-top: 20px;
+      border-radius: 10px;
+    }
+  
+    .offer-hero h1 {
+      font-size: 2rem;
+    }
+  
+    .offer-hero p {
+      font-size: 1.1rem;
+    }
+  
+    .why-offer {
+      flex-direction: column;
+      gap: 40px;
+      padding: 60px 20px;
+    }
+  
+    .why-offer-content h2 {
+      font-size: 2rem;
+    }
+  
+    .why-offer-content p,
+    .why-offer-content li {
+      font-size: 1rem;
+    }
+  
+    .timeline::before {
+      left: 8px;
+    }
+  
+    .timeline-item {
+      width: 100%;
+      padding-left: 30px;
+      padding-right: 20px;
+    }
+  
+    .timeline-item.right,
+    .timeline-item.left {
+      left: 0;
+      text-align: left;
+    }
+  
+    .timeline-item.left::before,
+    .timeline-item.right::before {
+      left: 0;
+    }
+  
+    .timeline-content {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  
+    .faq h2 {
+      font-size: 2rem;
+    }
+  
+    .faq-question {
+      font-size: 1.1rem;
+    }
+  
+    .faq-answer p {
+      font-size: 1rem;
+    }
+  
+    .btn {
+      font-size: 1rem;
+      padding: 10px 18px;
+    }
+  }
+  
+  /* ================================
+     💻 Tablets (768px - 1024px)
+     ================================ */
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+  
+    .hero-video video {
+      max-width: 90%;
+    }
+  
+    .offer-hero h1 {
+      font-size: 2.5rem;
+    }
+  
+    .why-offer {
+      flex-direction: column;
+      padding: 80px 20px;
+      gap: 50px;
+    }
+  
+    .timeline-item {
+      padding: 30px 20px;
+    }
+  }
+  
+  /* ================================
+     🖥️ Larger Screens - 1200+ px
+     ================================ */
+  @media screen and (min-width: 1200px) {
+  
+    .hero-video video {
+      max-width: 650px;
+    }
+  
+    .timeline-item {
+      padding: 50px;
+    }
+  
+    .offer-hero h1 {
+      font-size: 3.2rem;
+    }
+  
+    .why-offer-content h2 {
+      font-size: 3rem;
+    }
+  }
+
+  @media (max-width: 900px) {
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: black;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      height: 60px;
+      z-index: 1000;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 15px rgba(234, 22, 62, 0.4);
+    }
+  
+    /* Hamburger Menu Styling */
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      width: 30px;
+      height: 21px;
+      cursor: pointer;
+      z-index: 1001; /* Ensure it’s on top */
+      margin-right: 30px; /* Align to right */
+    }
+  
+    .hamburger span {
+      width: 100%;
+      height: 4px;
+      background-color: white;
+      transition: transform 0.3s ease-in-out;
+    }
+  
+    /* Navigation Links (Centered on smaller screens) */
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: transform 0.3s ease-in-out;
+    }
+  
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-size: 16px;
+      font-weight: 500;
+      transition: color 0.3s ease-in-out;
+    }
+  
+    .nav-links a:hover {
+      color: #ea163e;
+    }
+  
+    /* When nav-links are active */
+    .nav-links.active {
+      transform: translateX(0);
+    }
+
+     /* Adjust the hamburger menu behavior for small screens */
+     .nav-links {
+      flex-direction: column;
+      position: fixed;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background: black;
+      transform: translateY(-200%);
+      transition: transform 0.3s ease;
+      padding: 20px 0;
+      gap: 20px;
+      z-index: 999;
+    }
+  
+    /* When nav-links are active (shown) */
+    .nav-links.active {
+      transform: translateY(0);
+    }
+  
+    .nav-links a {
+      font-size: 18px;
+    }
+  }
+  

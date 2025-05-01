@@ -1,0 +1,103 @@
+@font-face {
+    font-family: 'Mont';
+    src: url('../fonts/Mont.otf') format('opentype');
+}
+
+/* 🌟 General Page Styling */
+body {
+    background-color: #000;
+    color: white;
+    font-family: 'Mont', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* 🌟 Thank You Page Styling */
+.thank-you-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    padding: 40px 20px;
+    background: black;
+    color: white;
+}
+
+/* 🌟 Content Box */
+.thank-you-content {
+    background: rgba(255, 255, 255, 0.03); /* Even subtler transparency */
+    padding: 50px;
+    border-radius: 12px;
+    box-shadow: 0 0 40px rgba(234, 22, 62, 0.6); /* More glow, less white */
+    max-width: 600px;
+    width: 90%;
+    backdrop-filter: blur(8px); /* Slightly reduced blur */
+    border: 1px solid rgba(255, 255, 255, 0.08); /* Very subtle border */
+}
+
+
+/* 🔥 Main Heading */
+.thank-you-content h1 {
+    font-size: clamp(2.2rem, 3vw, 3.5rem);
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+/* 🔥 Subtext */
+.thank-you-text {
+    font-size: clamp(1.2rem, 1.5vw, 1.6rem);
+    font-weight: 500;
+    opacity: 0.85;
+    line-height: 1.4;
+    color: #ddd;
+    margin-bottom: 30px;
+}
+
+/* 🌟 Buttons */
+.thank-you-content .btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border: 2px solid rgba(234, 22, 62, 0.7);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-radius: 50px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 15px rgba(234, 22, 62, 0.5);
+    margin-bottom: 15px;
+}
+
+/* 🔥 Button Hover */
+.thank-you-content .btn:hover {
+    background: rgba(234, 22, 62, 0.3);
+    border-color: #ea163e;
+    box-shadow: 0 0 20px rgba(234, 22, 62, 0.8);
+    transform: scale(1.05);
+}
+
+/* ✅ Mobile Optimization */
+@media (max-width: 768px) {
+    .thank-you-content {
+        padding: 30px;
+    }
+
+    .thank-you-content h1 {
+        font-size: 2rem;
+    }
+
+    .thank-you-text {
+        font-size: 1.1rem;
+    }
+
+    .thank-you-content .btn {
+        padding: 12px;
+        font-size: 1rem;
+    }
+}

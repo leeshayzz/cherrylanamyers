@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apply Now for Elite Branding</title>
+  <link rel="stylesheet" href="../assets/css/applystyles.css" />
+</head>
+<body>
+
+  <!-- 🌟 Header Section -->
+  <header class="header fade-in">
+    <!-- Logo Link -->
+    <a href="index.html" class="logo">
+      <img src="../assets/images/cherrlanalogo.png" alt="Cherry Lana Myers Logo">
+    </a>
+
+    <!-- 🍔 Hamburger Menu -->
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- 🌐 Navigation Links -->
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="wall-of-wins.html">Wins</a>
+      <a href="apply.html">Apply Now</a>
+      <a href="work-with-me.html">The Process</a>
+    </nav>
+  </header>
+
+  <!-- 🌟 Main Content -->
+  <div class="main-content fade-in">
+    <section class="apply-section">
+      <!-- 🌟 Headline & Subtitle -->
+      <div class="apply-content">
+        <h1 class="apply-main">Elite Branding Starts Here.</h1>
+        <p class="apply-subtext">
+          Two spots. Every five weeks.  
+          If you’re ready to command respect before even speaking, apply now.  
+        </p>
+      </div>
+
+      <!-- 🌟 Application Form -->
+      <div class="apply-container fade-in">
+        <form 
+          class="apply-form" 
+          id="applyForm" 
+          name="applyForm" 
+          method="POST" 
+          data-netlify="true" 
+          action="/thankyou.html"
+        >
+          <input type="hidden" name="form-name" value="applyForm" />
+
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required />
+          </div>
+
+          <div class="form-group">
+            <label for="business">Your Business</label>
+            <input type="text" id="business" name="business" placeholder="What do you do?" required />
+          </div>
+
+          <div class="form-group">
+            <label for="offer-value">What is your offer worth?</label>
+            <input type="text" id="offer-value" name="offer-value" placeholder="e.g., $2,500 per client" required />
+          </div>
+
+          <div class="form-group">
+            <label for="arr">What is your Annual Recurring Revenue (ARR)?</label>
+            <input type="text" id="arr" name="arr" placeholder="e.g., $100,000 per year" required />
+          </div>
+
+          <div class="form-group">
+            <label for="budget">Are you ready to invest $5K+ into your brand?</label>
+            <select id="budget" name="budget" required>
+              <option value="" disabled selected>Choose an option</option>
+              <option value="Yes">Yes, I understand brand power.</option>
+              <option value="Maybe">Maybe, if I see the value.</option>
+              <option value="No">No, I'm not ready.</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="referred-by">Were you referred? Who by?</label>
+            <input type="text" id="referred-by" name="referred-by" placeholder="Name or email of the person who referred you" />
+          </div>
+
+          <button type="submit" class="btn">Join the Waitlist</button>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <!-- 🌟 Footer -->
+  <footer>
+    <p>© 2025 Cherry's. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("applyForm").addEventListener("submit", function(event) {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const business = document.getElementById("business").value.trim();
+      const offerValue = document.getElementById("offer-value").value.trim();
+      const arr = document.getElementById("arr").value.trim();
+      const budget = document.getElementById("budget").value;
+      const referredBy = document.getElementById("referred-by")?.value.trim() || "";
+
+      const emailPattern = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+
+      if (!name || !email || !business || !offerValue || !arr || !budget) {
+        event.preventDefault();
+        alert("Please fill in all required fields.");
+        return;
+      }
+
+      if (!emailPattern.test(email)) {
+        event.preventDefault();
+        alert("Please enter a valid email address.");
+        return;
+      }
+
+      if (isNaN(offerValue.replace(/[^0-9]/g, '')) || isNaN(arr.replace(/[^0-9]/g, ''))) {
+        event.preventDefault();
+        alert("Please enter valid numeric values for Offer Worth & ARR.");
+        return;
+      }
+
+      // Allow default submission for Netlify
+    });
+
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('active');
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+    const elements = document.querySelectorAll(".fade-in");
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+        });
+    }, { threshold: 0.2 }); // Adjust threshold for when effect triggers
+
+    elements.forEach(element => observer.observe(element));
+});
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,298 @@
+@font-face {
+    font-family: 'Mont';
+    src: url('../fonts/Mont.otf') format('opentype');
+}
+
+/* 🌑 Base Styling */
+body {
+    background-color: #000;
+    color: white;
+    font-family: 'Mont', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, p {
+    margin: 0 0 20px 0;
+}
+
+h1 {
+    font-size: clamp(2rem, 4vw, 5rem);
+    font-weight: 700;
+    text-align: center;
+    margin-top: 120px;
+    color: #ddd;
+}
+
+h2 {
+    font-size: clamp(1.5rem, 3vw, 3rem);
+    font-weight: 600;
+}
+
+p {
+    font-size: clamp(1rem, 1.5vw, 1.3rem);
+    color: #ddd;
+    line-height: 1.4;
+}
+
+/* 🌟 Header (reuse homepage styling) */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    height: 60px;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(234, 22, 62, 0.4);
+}
+
+.logo {
+    margin-left: -80px;
+}
+
+.logo img {
+    height: 500px;
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+    color: #ea163e;
+}
+
+/* 🌟 Wins Container */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 20px 100px 20px;
+}
+
+/* 🌟 Single Win/Testimonial */
+.testimonial {
+    border: 2px solid rgba(234, 22, 62, 0.6);
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 40px;
+    background: black;
+    box-shadow: 0 0 20px rgba(234, 22, 62, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 35px rgba(234, 22, 62, 0.6);
+}
+
+.testimonial h2 {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.testimonial h3 {
+    font-size: 1.2rem;
+    color: #ea163e;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+
+.testimonial p {
+    color: #bbb;
+}
+
+/* 🌟 Fade In Animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 🌟 Footer */
+footer {
+    text-align: center;
+    padding: 30px;
+    margin-top: 50px;
+    background: black;
+    box-shadow: 0 4px 35px rgba(234, 22, 62, 0.4);
+    color: #aaa;
+}
+
+/* Hamburger Menu Styling */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 1001; /* Ensure it’s on top */
+}
+
+.hamburger span {
+    width: 100%;
+    height: 4px;
+    background-color: white;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* 🌟 Global Responsive Adjustments */
+@media (max-width: 900px) {
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: black;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      height: 60px;
+      z-index: 1000;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 15px rgba(234, 22, 62, 0.4);
+    }
+  
+    /* Hamburger Menu Styling */
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      width: 30px;
+      height: 21px;
+      cursor: pointer;
+      z-index: 1001; /* Ensure it’s on top */
+      margin-right: 30px; /* Align to right */
+    }
+  
+    .hamburger span {
+      width: 100%;
+      height: 4px;
+      background-color: white;
+      transition: transform 0.3s ease-in-out;
+    }
+  
+    /* Navigation Links (Centered on smaller screens) */
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: transform 0.3s ease-in-out;
+    }
+  
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-size: 16px;
+      font-weight: 500;
+      transition: color 0.3s ease-in-out;
+    }
+  
+    .nav-links a:hover {
+      color: #ea163e;
+    }
+  
+    /* When nav-links are active */
+    .nav-links.active {
+      transform: translateX(0);
+    }
+  
+/* Adjust the hamburger menu behavior for small screens */
+.nav-links {
+    flex-direction: column;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: black;
+    transform: translateY(-200%);
+    transition: transform 0.3s ease;
+    padding: 20px 0;
+    gap: 20px;
+    z-index: 999;
+  }
+
+  /* When nav-links are active (shown) */
+  .nav-links.active {
+    transform: translateY(0);
+  }
+
+  .nav-links a {
+    font-size: 18px;
+  }
+
+  /* Wins Container */
+  .container {
+    padding: 40px 20px;
+    max-width: 100%;
+}
+
+/* Testimonial Styling */
+.testimonial {
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.testimonial h3 {
+    font-size: 1rem;
+}
+
+/* Footer */
+footer {
+    padding: 20px;
+}
+}
+@media (max-width: 768px) {
+
+    .testimonial {
+        padding: 20px;
+    }
+
+    .testimonial h3 {
+        font-size: 1rem;
+    }
+
+    footer {
+        padding: 15px;
+    }
+}

@@ -1,0 +1,728 @@
+@font-face {
+    font-family: 'Mont';
+    src: url('../fonts/Mont.otf') format('opentype');
+}
+
+* {
+    box-sizing: border-box;
+  }
+
+/* 🌟 Hide site initially */
+body {
+    background-color: #000;
+    color: white;
+    font-family: 'Mont', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; 
+}
+
+/* 🌟 Fade-in Animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px); /* Start slightly below */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* ✨ When in View, Make it Visible */
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+section {
+    margin: 0;
+    padding: 0;
+}
+
+
+h1 {
+    font-size: clamp(1.8rem, 3vw, 4.5rem);
+    font-weight: 600;
+    line-height: 5%;
+}
+
+h2 {
+    font-size: clamp(1.5rem, 3vw, 3.5rem);
+}
+
+p {
+    font-size: clamp(1rem, 1.2vw, 1.4rem);
+    line-height: 1.2;
+}
+
+/* 🔥 Cherry Animation - Fullscreen */
+.cherry-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.cherry-animation img {
+    width: 900px;
+    filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.8)); /* Glowing effect */
+    animation: popIn 1.5s ease-in-out;
+}
+
+/* 🌟 Fade out cherry animation */
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* ✨ Pop-in animation */
+@keyframes popIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* 🌟 Fade out cherry */
+.cherry-animation {
+    transition: opacity 1s ease-in-out;
+}
+
+/* 🌟 Hide main site initially */
+.site-content {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+/* 🌟 Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    height: 60px;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(234, 22, 62, 0.4);
+}
+
+.header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff; /* Customize Cherry's brand color */
+}
+
+/* Logo Styling */
+
+.logo {
+    margin-left: -80px; /* Add this line to push logo a little left */
+}
+
+.logo img {
+    height: 500px; /* Adjust size based on your logo */
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+    color: #ea163e;
+}
+
+
+
+/* 🌟 Hero */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+}
+
+.hero-text {
+    margin-top: 50px; /* Move text down */
+    padding-top: 100px; 
+}
+
+.scroll-cue {
+    margin-top: 60px;
+    text-align: center;
+    font-size: 1rem;
+    color: #aaa;
+    animation: bounce 2s infinite;
+    cursor: default;
+    user-select: none;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(8px);
+    }
+    60% {
+        transform: translateY(4px);
+    }
+}
+
+
+/* 🌟 Footer */
+footer {
+    width: 100%;
+    background-color: black; /* Ensure background color */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 4px 35px rgba(234, 22, 62, 0.4);
+    position: relative; /* Ensure it's not affected by any surrounding elements */
+    margin: 0; /* Reset any margin */
+    box-sizing: border-box; /* Prevents content overflow causing layout issues */
+  }
+  
+
+/* 🌟 Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: none;
+    border: 2px solid #ea163e;
+    background: transparent;
+    color: white;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 10px rgba(234, 22, 62, 0.6);
+}
+
+.btn:hover {
+    background: rgba(234, 22, 62, 0.2);
+}
+
+/* 🌟 Problem Section (Left-Aligned Text + Right-Aligned Images) */
+.problem-section {
+    display: flex;
+    flex-direction: column; /* Stack images on top, text below */
+    align-items: center;
+    max-width: 1100px;
+    margin: 50px auto;
+    text-align: center; /* Center-align for premium feel */
+}
+
+
+/* 🔥 Images Side by Side */
+.problem-images {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between images */
+    width: 70%;
+}
+
+/* 🔥 Both Images Same Size */
+.problem-images div {
+    width: 50%; /* Each image takes half the width */
+    aspect-ratio: 1 / 1; /* Makes them squares */
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    filter: brightness(60%);
+    box-shadow: 0 0 20px rgba(234, 22, 62, 0.6);
+    transition: filter 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.problem-images div:hover {
+    filter: brightness(100%);
+    transform: scale(1.05);
+}
+
+/* 🌟 Text Section (Now at the Bottom) */
+.problem-text {
+    max-width: 800px;
+    margin-top: auto; /* Pushes it to the bottom */
+    padding-bottom: 50px; /* Add space before the next section */
+}
+
+.problem-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.problem-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #ddd;
+}
+
+/* Animation */
+.problem-images div {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease-in-out forwards;
+}
+
+/* Slight Stagger in Animation */
+.problem-images div:nth-child(1) {
+    animation-delay: 0.3s;
+}
+
+.problem-images div:nth-child(2) {
+    animation-delay: 0.6s;
+}
+
+/* Fade-in Up Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 🌟 Why Us Section */
+.why-us {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px;
+    margin: 50px auto;
+}
+
+/* 🔥 Layout for Text & Video */
+.why-container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    max-width: 1100px;
+}
+
+/* 🏆 Text Side */
+.why-text {
+    flex: 1;
+    text-align: right;
+    max-width: 500px;
+}
+
+/* 🎥 Video Side */
+.why-video {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* ✨ Video Styling */
+.why-video video {
+    width: 100%;
+    max-width: 750px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(234, 22, 62, 0.6);
+    filter: brightness(75%) contrast(1.1);
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.why-video video:hover {
+    transform: scale(1.05);
+    filter: brightness(90%) contrast(1.3);
+}
+
+/* 🌟 Offer Section */
+.offer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px;
+    background: black;
+}
+
+/* 🔥 Offer Content - Two Columns */
+.offer-content {
+    display: flex;
+    flex-direction: reverse; /* Moves text left, proof right */
+    align-items: center;
+    max-width: 1200px;
+    gap: 50px;
+}
+
+/* 🏆 Text Side */
+.offer-text {
+    flex: 1;
+    text-align: left;
+    max-width: 500px;
+}
+
+/* ✨ CTA Button */
+.offer-text .btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 14px 30px;
+    font-size: 1.2rem;
+}
+
+/* 🎯 Social Proof (Right Side) */
+.social-proof {
+    flex: 1;
+    text-align: center;
+}
+
+.screenshot-container img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(234, 22, 62, 0.6);
+    filter: brightness(80%) contrast(1.1);
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+/* 🏆 Hover Effect */
+.screenshot-container img:hover {
+    transform: scale(1.05);
+    filter: brightness(95%) contrast(1.3);
+}
+
+/* 📢 Proof Statement */
+.proof-statement {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ddd;
+    margin-top: 15px;
+}
+
+/* 📱 Responsive (Mobile-Friendly) */
+@media (max-width: 1024px) {
+    .offer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .offer-text, .social-proof {
+        max-width: 100%;
+    }
+
+    .offer-text {
+        text-align: center;
+    }
+
+    .offer-list li {
+        text-align: left;
+    }
+}
+
+/* 🌟 Podcast & Speaker Section */
+/* 🌟 Podcast & Speaker Section */
+.podcast-speaker-section {
+    padding: 50px 20px;
+    text-align: center;
+    color: white;
+    margin: 50px auto;
+    max-width: 1100px;
+    opacity: 0;
+    transform: translateY(30px); /* Slide up effect */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* 🌟 Fade-in effect for podcast and speaker section */
+.podcast-speaker-section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.podcast-speaker-section h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.podcast-speaker-section p {
+    font-size: 1.2rem;
+    color: #ddd;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+/* 🌟 Buttons Styling */
+.podcast-speaker-section .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+    background: transparent;
+    border: 2px solid #ea163e;
+    color: white;
+    margin-right: 20px; /* Space between buttons */
+}
+
+.podcast-speaker-section .btn:hover {
+    background: rgba(234, 22, 62, 0.2);
+    transform: scale(1.05);
+}
+
+
+
+/* 🌟 Apply Section */
+.apply-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: black;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+/* 🔥 Container for Centering */
+.apply-container {
+    max-width: 1100px;
+}
+
+/* 🏆 Headline */
+.apply-main h1 {
+        font-size: 3rem; /* Adjust as needed */
+        max-width: 800px; /* Ensures enough space for text */
+        white-space: normal; /* Ensures text wraps properly */
+        text-align: center; /* Center for a premium look */
+    }
+
+/* 💬 Subtitle */
+.apply-subtext {
+    font-size: 1.4rem;
+    color: #ddd;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+/* 🎯 Form */
+.apply-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* 🔲 Form Fields */
+.form-group {
+    text-align: left;
+}
+
+.form-group label {
+    font-size: 1rem;
+    color: #aaa;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.form-group input, 
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 30px rgba(234, 22, 62, 0.6);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    transition: border 0.3s ease-in-out;
+}
+
+.form-group input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.form-group input:focus, 
+.form-group select:focus {
+    border-color: #ea163e;
+    outline: none;
+}
+
+.btn:hover {
+    background: rgba(234, 22, 62, 0.8);
+    transform: scale(1.05);
+}
+
+@media (max-width: 900px) {
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: black;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      height: 60px;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(234, 22, 62, 0.4);
+    }
+  
+    /* Hamburger Menu */
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      width: 30px;
+      height: 21px;
+      cursor: pointer;
+      z-index: 1001;
+      margin-right: -10px;
+    }
+  
+    .hamburger span {
+      width: 100%;
+      height: 4px;
+      background-color: white;
+      transition: transform 0.3s ease-in-out;
+    }
+  
+    /* Navigation */
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background: black;
+      transform: translateY(-200%);
+      transition: transform 0.3s ease;
+      padding: 20px 0;
+      gap: 20px;
+      z-index: 999;
+      text-align: center;
+    }
+  
+    .nav-links.active {
+      transform: translateY(0);
+    }
+  
+    .nav-links a {
+      font-size: 18px;
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: color 0.3s ease-in-out;
+    }
+  
+    .nav-links a:hover {
+      color: #ea163e;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    /* Hero Section */
+    .hero {
+      flex-direction: column;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+  
+    .hero-text h1 {
+      font-size: 1.8rem;
+      line-height: 2.2rem;
+    }
+  
+    .hero-text p {
+      font-size: 1rem;
+      line-height: 1.6rem;
+      margin-bottom: 1.5rem;
+    }
+  
+    .hero-text .btn {
+      width: 100%;
+      padding: 0.75rem 1rem;
+    }
+  
+    .scroll-cue {
+      font-size: 0.9rem;
+      margin-top: 1rem;
+    }
+  
+    /* Section Stacking */
+    .problem-section,
+    .why-container,
+    .offer-content {
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+    }
+  
+    .problem-text p,
+    .offer-text p {
+      font-size: 1rem;
+    }
+  
+    .problem-images,
+    .why-video,
+    .social-proof {
+      width: 100%;
+      margin-top: 20px;
+    }
+  
+    .why-video video {
+      width: 100%;
+      height: auto;
+    }
+  
+    .btn {
+      width: 100%;
+      text-align: center;
+    }
+  
+    /* Cherry Animation */
+    .cherry-animation img {
+      width: 80%;
+    }
+  
+    /* Footer */
+    footer {
+      padding: 2rem 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+  }
+  
